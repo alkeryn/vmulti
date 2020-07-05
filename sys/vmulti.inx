@@ -6,11 +6,9 @@ Provider=%VENDOR%
 DriverVer=01/10/2007,1.0.0.0
 CatalogFile=vmulti.cat
 
+
 [SourceDisksNames]
 99 = %DISK_NAME%,,,""
-
-;[DestinationDirs]
-;CopyFunctionDriver = 12      
 
 [Manufacturer]
 %VENDOR%=Vendor, NT$ARCH$, NT$ARCH$.6.1
@@ -36,11 +34,20 @@ AddReg = vmulti_Parameters.AddReg
 ; vmulti is the function driver and hidkmdf is the WDM HID minidriver
 ;
 [vmulti.Inst.NT.Services]
-;AddService = hidkmdf,,hidkmdf_Service_Inst,
+AddService = hidkmdf,,hidkmdf_Service_Inst,
 AddService = vmulti,0x00000002, vmulti_Service_Inst
 
+
 [vmulti_Parameters.AddReg]
-;HKR,,"UpperFilters",0x00010000,"hidkmdf"
+HKR,,"UpperFilters",0x00010000,"hidkmdf"
+
+[hidkmdf_Service_Inst]
+DisplayName    = %hidkmdf.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\hidkmdf.sys
+LoadOrderGroup = PNP Filter
 
 
 ;===============================================================
@@ -82,8 +89,8 @@ ServiceBinary  = %12%\vmulti.sys
 ;--- WDF Coinstaller installation ------
 ;
 [DestinationDirs]
-CopyFunctionDriver
 vmulti.Inst_CoInstaller_CopyFiles = 11
+CopyFunctionDriver = 12      
 
 [vmulti.Inst.NT.CoInstallers]
 AddReg=vmulti.Inst_CoInstaller_AddReg
@@ -97,6 +104,7 @@ WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,,,0x00000010    ;COPYFLG_NO_OVERWRITE
 
 [SourceDisksFiles]
 vmulti.sys = 99
+hidkmdf.sys = 99
 WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=99 ; make sure the number matches with SourceDisksNames
 
 [vmulti.Inst.NT.Wdf]
@@ -109,6 +117,7 @@ KmdfLibraryVersion = $KMDFVERSION$
 VENDOR         = "djpnewton@gmail.com" 
 vmulti         = "VMulti HID" 
 DISK_NAME      = "VMulti Device Install Disk"
+hidkmdf.SVCDESC= "Filter Driver Service for HID-KMDF Interface layer"
 
 ;  *******Non Localizable Strings******* 
 

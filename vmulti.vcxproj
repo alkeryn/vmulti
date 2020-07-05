@@ -125,12 +125,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <IncludePath>C:\Users\alkeryn\source\repos\vmulti\sys;C:\Users\alkeryn\source\repos\vmulti\inc;$(IncludePath)</IncludePath>
-    <SourcePath>C:\Users\alkeryn\source\repos\vmulti\sys;$(SourcePath)</SourcePath>
+    <SourcePath>C:\Users\alkeryn\source\repos\vmulti\hidmapper;C:\Users\alkeryn\source\repos\vmulti\sys;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <IncludePath>C:\Users\alkeryn\source\repos\vmulti\sys;C:\Users\alkeryn\source\repos\vmulti\inc;$(IncludePath)</IncludePath>
-    <SourcePath>C:\Users\alkeryn\source\repos\vmulti\sys;$(SourcePath)</SourcePath>
+    <SourcePath>C:\Users\alkeryn\source\repos\vmulti\hidmapper;C:\Users\alkeryn\source\repos\vmulti\sys;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
