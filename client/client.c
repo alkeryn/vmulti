@@ -195,7 +195,7 @@ BYTE x, BYTE y, BYTE wheelPosition)
     return HidOutput(FALSE, vmulti->hControl, (PCHAR)vmulti->controlReport, CONTROL_REPORT_SIZE);
 }
 
-BOOL vmulti_update_digi(pvmulti_client vmulti, BYTE status, USHORT x, USHORT y)
+BOOL vmulti_update_digi(pvmulti_client vmulti, BYTE status, USHORT x, USHORT y, USHORT pressure, char tiltx, char tilty)
 {
     VMultiControlReportHeader* pReport = NULL;
     VMultiDigiReport* pDigiReport = NULL;
@@ -222,6 +222,9 @@ BOOL vmulti_update_digi(pvmulti_client vmulti, BYTE status, USHORT x, USHORT y)
     pDigiReport->Status = status;
     pDigiReport->XValue = x;
     pDigiReport->YValue = y;
+    pDigiReport->pressure = pressure;
+    pDigiReport->tiltx = tiltx;
+    pDigiReport->tilty = tilty;
 
     // Send the report
     return HidOutput(FALSE, vmulti->hControl, (PCHAR)vmulti->controlReport, CONTROL_REPORT_SIZE);

@@ -153,6 +153,9 @@
   <ItemGroup>
     <Inf Include="sys\vmulti.inx" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sys\vmulti.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

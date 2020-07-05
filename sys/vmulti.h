@@ -224,6 +224,21 @@ HID_REPORT_DESCRIPTOR DefaultReportDescriptor[] = {
     0x81, 0x02,                         //     INPUT (Data,Var,Abs)         
     0x09, 0x31,                         //     USAGE (Y)                    
     0x81, 0x02,                         //     INPUT (Data,Var,Abs)
+
+	0x05, 0x0d,                         //     USAGE_PAGE (Digitizers)      
+	0x09, 0x30,                         //     USAGE (Tip Pressure)         
+	0x26, 0xff, 0x7f,                   //     LOGICAL_MAXIMUM (32767)        
+	0x81, 0x02,                         //     INPUT (Data,Var,Abs)         
+	0x75, 0x08,                         //     REPORT_SIZE (16)              
+	0x09, 0x3d,                         //     USAGE (X Tilt)               
+	0x15, 0x81,                         //     LOGICAL_MINIMUM (-127)       
+	0x25, 0x7f,                         //     LOGICAL_MAXIMUM (127)        
+	0x81, 0x02,                         //     INPUT (Data,Var,Abs)         
+	0x09, 0x3e,                         //     USAGE (Y Tilt)               
+	0x15, 0x81,                         //     LOGICAL_MINIMUM (-127)       
+	0x25, 0x7f,                         //     LOGICAL_MAXIMUM (127)        
+	0x81, 0x02,                         //     INPUT (Data,Var,Abs)        
+
     0xc0,                               //   END_COLLECTION
     0xc0,                               // END_COLLECTION
 

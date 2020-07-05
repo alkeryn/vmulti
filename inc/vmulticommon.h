@@ -135,6 +135,11 @@ typedef struct _VMULTI_DIGI_REPORT
 
     USHORT    YValue;
 
+    USHORT    pressure;
+
+    char tiltx, tilty;
+
+
 } VMultiDigiReport;
 #pragma pack()
 
